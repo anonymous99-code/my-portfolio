@@ -17,7 +17,7 @@ const projects = [
     ],
     image: "/images/projects/smart-inventory.png",
     github: "https://github.com/anonymous99-code/Smart-Inventory-Sales-Management",
-    demo: "https://anonymous99-code.github.io/Smart-Inventory-Sales-",
+    demo: "https://anonymous99-code.github.io/sale-system-demo/",
     featured: true,
   },
 
@@ -39,7 +39,7 @@ const projects = [
     ],
     image: "/images/projects/cbt-system.png",
     github: "https://github.com/anonymous99-code/cbt-system",
-    demo: "https://anonymous99-code.github.io/cbt-system/",
+    demo: " https://anonymous99-code.github.io/cbt-demo/",
     featured: true,
   },
 
@@ -54,7 +54,7 @@ const projects = [
     technologies: ["React", "Tailwind CSS", "Three.js", "GSAP", "Vite"],
     image: "/images/projects/premium-clothing.png",
     github: "https://github.com/anonymous99-code/Premium-clothing-store",
-    demo: "https://anonymous99-code.github.io/Premium-clothing-store/",
+    demo: "https://anonymous99-code.github.io/clothing-store-demo/",
     featured: true,
   },
 
@@ -69,7 +69,7 @@ const projects = [
     technologies: ["Python", "Cybersecurity", "Threat Detection", "CLI"],
     image: "/images/projects/psed.png",
     github: "https://github.com/anonymous99-code/P-sedv2",
-    demo: "https://anonymous99-code.github.io/P-sedv2/",
+    demo: " https://anonymous99-code.github.io/psed-demo/",
     featured: true,
   },
 
