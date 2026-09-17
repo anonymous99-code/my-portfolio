@@ -1,13 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
 import ProjectCard from "../components/ProjectCard";
 import projects from "../data/projects";
 
 function Projects() {
-  const featuredProjects = projects.filter(
-    (project) => project.featured
-  );
+  const featuredProjects = projects.filter((project) => project.featured);
 
   return (
     <section id="projects" className="px-6 py-28 md:py-36">
@@ -20,11 +19,7 @@ function Projects() {
 
         <div className="grid gap-5 md:grid-cols-2">
           {featuredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={index}
-            />
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
 
@@ -34,13 +29,13 @@ function Projects() {
           viewport={{ once: true }}
           className="mt-10 text-center"
         >
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-sm text-white/60 transition-all duration-300 hover:border-white/30 hover:bg-white hover:text-black"
           >
             Explore all projects
             <ArrowUpRight size={16} />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
