@@ -90,8 +90,8 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden px-6 py-28 md:py-36">
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-3xl" />
+    <section id="contact" className="relative overflow-hidden px-4 sm:px-6 py-20 sm:py-28 md:py-36">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[350px] w-[350px] sm:h-[500px] sm:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionHeading
@@ -100,24 +100,24 @@ function Contact() {
           description="Have a project, opportunity, or idea you'd like to discuss? I'm always open to connecting and exploring what we can build together."
         />
 
-        <div className="mt-12 grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="mt-8 sm:mt-12 grid items-start gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           {/* Form Container */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7 }}
-            className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 backdrop-blur-sm md:p-9"
+            className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-7 backdrop-blur-sm md:p-9"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
+            <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
               <MessageCircle size={21} className="text-white/70" />
             </div>
 
-            <h3 className="mt-7 text-2xl font-semibold tracking-tight text-white">
+            <h3 className="mt-5 sm:mt-7 text-xl sm:text-2xl font-semibold tracking-tight text-white">
               Have an idea?
             </h3>
 
-            <p className="mt-2 max-w-lg text-sm leading-6 text-white/50">
+            <p className="mt-1.5 sm:mt-2 max-w-lg text-xs sm:text-sm leading-5 sm:leading-6 text-white/50">
               Send me a message below or reach out directly through social links.
             </p>
 
@@ -125,13 +125,13 @@ function Contact() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="mt-8 flex flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[0.02] p-8 text-center"
+                className="mt-6 sm:mt-8 flex flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[0.02] p-6 sm:p-8 text-center"
               >
                 <CheckCircle2 size={40} className="text-emerald-400" />
-                <h4 className="mt-4 text-lg font-medium text-white">
+                <h4 className="mt-3 sm:mt-4 text-base sm:text-lg font-medium text-white">
                   {FORMSPREE_ID ? "Message Sent!" : "Almost there!"}
                 </h4>
-                <p className="mt-1 text-sm text-white/50">
+                <p className="mt-1 text-xs sm:text-sm text-white/50">
                   {FORMSPREE_ID
                     ? "Thank you for reaching out. I'll get back to you soon."
                     : "Your email app should now be open with your message ready. Just press send."}
@@ -139,17 +139,17 @@ function Contact() {
                 <button
                   type="button"
                   onClick={() => setIsSubmitted(false)}
-                  className="mt-6 text-xs text-white/50 underline underline-offset-4 transition-colors hover:text-white"
+                  className="mt-5 sm:mt-6 text-xs text-white/50 underline underline-offset-4 transition-colors hover:text-white"
                 >
                   Send another message
                 </button>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-4">
+              <form onSubmit={handleSubmit} className="mt-6 sm:mt-8 flex flex-col gap-4">
                 {error && (
                   <div
                     role="alert"
-                    className="flex items-start gap-3 rounded-xl border border-red-400/20 bg-red-500/10 p-4 text-sm text-red-200"
+                    className="flex items-start gap-3 rounded-xl border border-red-400/20 bg-red-500/10 p-4 text-xs sm:text-sm text-red-200"
                   >
                     <AlertCircle size={17} className="mt-0.5 shrink-0" />
                     {error}
@@ -172,7 +172,7 @@ function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/30 transition-all duration-200 focus:border-white/40 focus:bg-white/[0.05] focus:outline-none focus:ring-1 focus:ring-white/40"
+                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.03] px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-white/30 transition-all duration-200 focus:border-white/40 focus:bg-white/[0.05] focus:outline-none focus:ring-1 focus:ring-white/40"
                   />
                 </div>
 
@@ -192,7 +192,7 @@ function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your@email.com"
-                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/30 transition-all duration-200 focus:border-white/40 focus:bg-white/[0.05] focus:outline-none focus:ring-1 focus:ring-white/40"
+                    className="mt-2 w-full rounded-xl border border-white/10 bg-white/[0.03] px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-white/30 transition-all duration-200 focus:border-white/40 focus:bg-white/[0.05] focus:outline-none focus:ring-1 focus:ring-white/40"
                   />
                 </div>
 
@@ -211,7 +211,7 @@ function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Tell me about your project or idea..."
-                    className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white placeholder-white/30 transition-all duration-200 focus:border-white/40 focus:bg-white/[0.05] focus:outline-none focus:ring-1 focus:ring-white/40"
+                    className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-white/[0.03] px-3.5 sm:px-4 py-2.5 sm:py-3 text-sm text-white placeholder-white/30 transition-all duration-200 focus:border-white/40 focus:bg-white/[0.05] focus:outline-none focus:ring-1 focus:ring-white/40"
                   />
                 </div>
 
@@ -254,10 +254,10 @@ function Contact() {
                     duration: 0.6,
                     delay: index * 0.1,
                   }}
-                  className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-5 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]"
+                  className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.02] p-4 sm:p-5 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.04]"
                 >
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.02]">
+                  <div className="flex items-center gap-3.5 sm:gap-4">
+                    <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.02]">
                       <Icon
                         size={18}
                         className="text-white/50 transition-colors group-hover:text-white"
@@ -269,7 +269,7 @@ function Contact() {
                         {link.label}
                       </p>
 
-                      <p className="mt-0.5 text-sm font-medium text-white/70 transition-colors group-hover:text-white">
+                      <p className="mt-0.5 text-xs sm:text-sm font-medium text-white/70 transition-colors group-hover:text-white break-all sm:break-normal">
                         {link.value}
                       </p>
                     </div>
@@ -277,7 +277,7 @@ function Contact() {
 
                   <ArrowUpRight
                     size={17}
-                    className="text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white"
+                    className="shrink-0 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white"
                   />
                 </motion.a>
               );

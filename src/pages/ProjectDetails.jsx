@@ -18,19 +18,19 @@ function ProjectDetails() {
 
   if (!project) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#050505] px-6 text-white">
+      <main className="flex min-h-screen items-center justify-center bg-[#050505] px-4 sm:px-6 text-white">
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.2em] text-white/30">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-white/30">
             404
           </p>
 
-          <h1 className="mt-3 text-3xl font-bold">
+          <h1 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl font-bold">
             Project not found
           </h1>
 
           <Link
             to="/projects"
-            className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm text-white/60 transition hover:border-white/30 hover:text-white"
+            className="mt-5 sm:mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm text-white/60 transition hover:border-white/30 hover:text-white"
           >
             <ArrowLeft size={16} />
             All projects
@@ -42,7 +42,7 @@ function ProjectDetails() {
 
   return (
     <>
-    <main className="min-h-screen bg-[#050505] px-6 pb-24 pt-12 text-white sm:pt-16">
+    <main className="min-h-screen bg-[#050505] px-4 sm:px-6 pb-16 sm:pb-24 pt-24 sm:pt-32 text-white">
       <div className="mx-auto max-w-6xl">
         {/* Back Button */}
         <motion.div
@@ -52,7 +52,7 @@ function ProjectDetails() {
         >
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-sm text-white/40 transition hover:text-white"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-white/40 transition hover:text-white"
           >
             <ArrowLeft size={16} />
             Back to projects
@@ -64,17 +64,17 @@ function ProjectDetails() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mt-12 max-w-4xl"
+          className="mt-8 sm:mt-12 max-w-4xl"
         >
           <p className="text-xs uppercase tracking-[0.2em] text-white/30">
             {project.category}
           </p>
 
-          <h1 className="mt-4 text-4xl font-bold tracking-[-0.03em] sm:text-5xl md:text-7xl">
+          <h1 className="mt-3 sm:mt-4 text-3xl sm:text-4xl font-bold tracking-[-0.03em] md:text-6xl lg:text-7xl">
             {project.title}
           </h1>
 
-          <p className="mt-6 max-w-3xl text-base leading-8 text-white/50 md:text-lg">
+          <p className="mt-4 sm:mt-6 max-w-3xl text-sm sm:text-base leading-6 sm:leading-8 text-white/50 md:text-lg">
             {project.longDescription}
           </p>
         </motion.div>
@@ -84,7 +84,7 @@ function ProjectDetails() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-12 aspect-video overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
+          className="mt-8 sm:mt-12 aspect-video overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
         >
           <SafeImage
             src={project.image}
@@ -101,7 +101,7 @@ function ProjectDetails() {
         </motion.div>
 
         {/* Content */}
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_320px]">
+        <div className="mt-8 sm:mt-10 grid gap-8 sm:gap-10 lg:grid-cols-[1fr_320px]">
           {/* Main */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -113,24 +113,24 @@ function ProjectDetails() {
               Overview
             </p>
 
-            <h2 className="mt-3 text-2xl font-semibold">
+            <h2 className="mt-2.5 sm:mt-3 text-xl sm:text-2xl font-semibold">
               About the project
             </h2>
 
-            <p className="mt-5 max-w-3xl text-sm leading-7 text-white/40">
+            <p className="mt-4 sm:mt-5 max-w-3xl text-xs sm:text-sm leading-6 sm:leading-7 text-white/40">
               {project.description}
             </p>
 
-            <div className="mt-10 border-t border-white/10 pt-8">
-              <h3 className="text-lg font-semibold">
+            <div className="mt-8 sm:mt-10 border-t border-white/10 pt-6 sm:pt-8">
+              <h3 className="text-base sm:text-lg font-semibold">
                 Technologies
               </h3>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-4 sm:mt-5 flex flex-wrap gap-2">
                 {project.technologies.map((technology) => (
                   <span
                     key={technology}
-                    className="rounded-lg border border-white/10 bg-white/[0.02] px-3 py-2 text-sm text-white/50"
+                    className="rounded-lg border border-white/10 bg-white/[0.02] px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-white/50"
                   >
                     {technology}
                   </span>
@@ -145,21 +145,21 @@ function ProjectDetails() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="h-fit rounded-2xl border border-white/10 bg-white/[0.02] p-6"
+            className="h-fit rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6"
           >
             <p className="text-xs uppercase tracking-[0.2em] text-white/30">
               Project Links
             </p>
 
-            <div className="mt-5 space-y-3">
+            <div className="mt-4 sm:mt-5 space-y-3">
               {isRealLink(project.github) && (
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-white/10 px-4 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
+                  className="flex items-center justify-between rounded-xl border border-white/10 px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
                 >
-                  <span className="flex items-center gap-3">
+                  <span className="flex items-center gap-2.5 sm:gap-3">
                     <FolderGit2 size={17} />
                     GitHub Repository
                   </span>
@@ -173,7 +173,7 @@ function ProjectDetails() {
                   href={project.demo}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-white/10 px-4 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
+                  className="flex items-center justify-between rounded-xl border border-white/10 px-3.5 sm:px-4 py-2.5 sm:py-3 text-xs sm:text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
                 >
                   <span>Live Demo</span>
 
@@ -182,7 +182,7 @@ function ProjectDetails() {
               )}
 
               {!isRealLink(project.github) && !isRealLink(project.demo) && (
-                <p className="text-sm leading-6 text-white/40">
+                <p className="text-xs sm:text-sm leading-6 text-white/40">
                   Links for this project are coming soon.
                 </p>
               )}

@@ -25,7 +25,7 @@ const highlights = [
 
 function About() {
   return (
-    <section id="about" className="px-6 py-28 md:py-36">
+    <section id="about" className="px-4 sm:px-6 py-20 sm:py-28 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="About Me"
@@ -33,13 +33,13 @@ function About() {
           description="I'm a developer focused on creating practical digital products while developing a strong foundation in cybersecurity."
         />
 
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-8 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7 }}
-            className="space-y-6 text-base leading-8 text-white/50"
+            className="space-y-4 sm:space-y-6 text-sm sm:text-base leading-7 sm:leading-8 text-white/50"
           >
             <p>
               My journey into software development started in June 2025.
@@ -77,17 +77,17 @@ function About() {
                     duration: 0.6,
                     delay: index * 0.1,
                   }}
-                  className="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition duration-300 hover:border-white/20 hover:bg-white/[0.04]"
+                  className="group rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 transition duration-300 hover:border-white/20 hover:bg-white/[0.04]"
                 >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
+                  <div className="mb-4 sm:mb-5 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03]">
                     <Icon size={20} className="text-white/70" />
                   </div>
 
-                  <h3 className="text-lg font-semibold">
+                  <h3 className="text-base sm:text-lg font-semibold">
                     {item.title}
                   </h3>
 
-                  <p className="mt-2 text-sm leading-6 text-white/40">
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm leading-5 sm:leading-6 text-white/40">
                     {item.description}
                   </p>
                 </motion.div>

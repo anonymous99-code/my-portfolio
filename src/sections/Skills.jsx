@@ -5,7 +5,7 @@ import skills from "../data/skills";
 
 function Skills() {
   return (
-    <section id="skills" className="px-6 py-28 md:py-36">
+    <section id="skills" className="px-4 sm:px-6 py-20 sm:py-28 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Skills & Technologies"
@@ -29,14 +29,14 @@ function Skills() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
+          className="mt-8 sm:mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 sm:pt-8 sm:flex-row sm:items-center sm:justify-between"
         >
-          <p className="max-w-xl text-sm leading-6 text-white/30">
+          <p className="max-w-xl text-xs sm:text-sm leading-5 sm:leading-6 text-white/30">
             I don't just collect technologies. I focus on understanding how
             they work together to solve real problems.
           </p>
 
-          <span className="text-xs uppercase tracking-[0.15em] text-white/20">
+          <span className="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-white/20">
             Always learning
           </span>
         </motion.div>

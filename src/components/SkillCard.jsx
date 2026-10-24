@@ -11,9 +11,9 @@ function SkillCard({ category, skills, index }) {
         duration: 0.6,
         delay: index * 0.1,
       }}
-      className="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04]"
+      className="group rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04]"
     >
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-6 sm:mb-8 flex items-center justify-between">
         <span className="text-xs font-medium uppercase tracking-[0.18em] text-white/40">
           {category}
         </span>
@@ -28,7 +28,7 @@ function SkillCard({ category, skills, index }) {
         {skills.map((skill) => (
           <span
             key={skill}
-            className="rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white/60 transition-colors hover:border-white/20 hover:text-white"
+            className="rounded-lg border border-white/10 bg-black/20 px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-white/60 transition-colors hover:border-white/20 hover:text-white"
           >
             {skill}
           </span>

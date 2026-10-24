@@ -14,7 +14,7 @@ function Button({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white px-6 py-3 text-sm font-medium transition-all duration-300 ${styles[variant]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-all duration-300 ${styles[variant]} ${className}`}
     >
       {children}
     </a>

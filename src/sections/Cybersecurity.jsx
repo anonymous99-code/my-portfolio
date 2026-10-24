@@ -65,8 +65,8 @@ const projects = [
 
 function Cybersecurity() {
   return (
-    <section id="cybersecurity" className="relative overflow-hidden px-6 py-28 md:py-36">
-      <div className="pointer-events-none absolute right-[-150px] top-1/3 h-[400px] w-[400px] rounded-full bg-white/[0.02] blur-3xl" />
+    <section id="cybersecurity" className="relative overflow-hidden px-4 sm:px-6 py-20 sm:py-28 md:py-36">
+      <div className="pointer-events-none absolute right-[-150px] top-1/3 h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] rounded-full bg-white/[0.02] blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
         <SectionHeading
@@ -89,20 +89,20 @@ function Cybersecurity() {
                   duration: 0.6,
                   delay: index * 0.08,
                 }}
-                className="group rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04]"
+                className="group rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.04]"
               >
-                <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10">
+                <div className="mb-5 sm:mb-6 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-white/10">
                   <Icon
                     size={19}
                     className="text-white/50 transition-colors group-hover:text-white"
                   />
                 </div>
 
-                <h3 className="text-base font-semibold">
+                <h3 className="text-sm sm:text-base font-semibold">
                   {area.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-white/40">
+                <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm leading-5 sm:leading-6 text-white/40">
                   {area.description}
                 </p>
               </motion.div>
@@ -117,16 +117,16 @@ function Cybersecurity() {
           transition={{ duration: 0.7 }}
           className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]"
         >
-          <div className="border-b border-white/10 px-6 py-5 md:px-8">
+          <div className="border-b border-white/10 px-4 sm:px-6 py-4 sm:py-5 md:px-8">
             <div className="flex items-center gap-3">
               <Terminal size={18} className="text-white/40" />
 
               <div>
-                <h3 className="font-semibold">
+                <h3 className="text-sm sm:text-base font-semibold">
                   Security Projects
                 </h3>
 
-                <p className="mt-1 text-xs text-white/30">
+                <p className="mt-0.5 sm:mt-1 text-xs text-white/30">
                   Practical projects I've worked on
                 </p>
               </div>
@@ -137,25 +137,25 @@ function Cybersecurity() {
             {projects.map((project, index) => (
               <div
                 key={project.name}
-                className="flex flex-col gap-2 px-6 py-5 transition-colors hover:bg-white/[0.03] sm:flex-row sm:items-center sm:justify-between md:px-8"
+                className="flex flex-col gap-2 px-4 sm:px-6 py-4 sm:py-5 transition-colors hover:bg-white/[0.03] sm:flex-row sm:items-center sm:justify-between md:px-8"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 sm:gap-4">
                   <span className="font-mono text-xs text-white/20">
                     0{index + 1}
                   </span>
 
                   <div>
-                    <h4 className="text-sm font-medium">
+                    <h4 className="text-xs sm:text-sm font-medium">
                       {project.name}
                     </h4>
 
-                    <p className="mt-1 text-xs text-white/30">
+                    <p className="mt-0.5 sm:mt-1 text-xs text-white/30">
                       {project.description}
                     </p>
                   </div>
                 </div>
 
-                <span className="text-xs uppercase tracking-[0.15em] text-white/20">
+                <span className="text-[11px] sm:text-xs uppercase tracking-[0.15em] text-white/20">
                   Python / Security
                 </span>
               </div>
@@ -163,8 +163,8 @@ function Cybersecurity() {
           </div>
         </motion.div>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8">
-          <p className="text-sm leading-7 text-white/40">
+        <div className="mt-6 sm:mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 md:p-8">
+          <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-white/40">
             My approach to cybersecurity is centered around responsible,
             defensive learning — understanding how attacks work so that
             applications, systems, and users can be better protected.

@@ -1,9 +1,9 @@
 function SectionHeading({ eyebrow, title, description }) {
   return (
-    <div className="mb-12 max-w-2xl">
+    <div className="mb-8 sm:mb-12 max-w-2xl">
       {eyebrow && (
-        <p className="mb-4 flex items-center gap-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-white/45">
-          <span className="h-px w-8 bg-gradient-to-r from-emerald-400/80 to-transparent" />
+        <p className="mb-3 sm:mb-4 flex items-center gap-2.5 sm:gap-3 font-mono text-[11px] sm:text-xs font-medium uppercase tracking-[0.2em] text-white/45">
+          <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-emerald-400/80 to-transparent" />
           {eyebrow}
         </p>
       )}
@@ -13,7 +13,7 @@ function SectionHeading({ eyebrow, title, description }) {
       </h2>
 
       {description && (
-        <p className="mt-5 text-base leading-7 text-white/50">
+        <p className="mt-3.5 sm:mt-5 text-sm sm:text-base leading-6 sm:leading-7 text-white/50">
           {description}
         </p>
       )}

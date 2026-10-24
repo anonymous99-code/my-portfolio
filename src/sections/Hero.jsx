@@ -6,7 +6,7 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pt-24"
+      className="relative flex min-h-screen items-center overflow-hidden px-4 sm:px-6 pt-24 sm:pt-28"
     >
       {/* Subtle grid backdrop */}
       <div
@@ -15,7 +15,7 @@ function Hero() {
       />
 
       {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.04] blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[350px] w-[350px] sm:h-[500px] sm:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.04] blur-3xl" />
 
       <div className="relative mx-auto w-full max-w-6xl">
         <div className="max-w-4xl">
@@ -24,7 +24,7 @@ function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-7 flex items-center gap-3"
+            className="mb-6 sm:mb-7 flex items-center gap-3"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/60" />
@@ -41,7 +41,7 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-5xl font-bold leading-[0.95] tracking-[-0.04em] sm:text-6xl md:text-7xl lg:text-8xl"
+            className="text-4xl sm:text-5xl font-bold leading-[0.95] tracking-[-0.04em] md:text-6xl lg:text-7xl xl:text-8xl"
           >
             Full-Stack
             <br />
@@ -57,7 +57,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 max-w-2xl text-base leading-7 text-white/50 sm:text-lg"
+            className="mt-6 sm:mt-8 max-w-2xl text-sm sm:text-base leading-6 sm:leading-7 text-white/50 md:text-lg"
           >
             I build modern, scalable web applications and practical
             cybersecurity solutions. Turning ideas into functional digital
@@ -69,7 +69,7 @@ function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-9 flex flex-wrap gap-4"
+            className="mt-8 sm:mt-9 flex flex-wrap gap-3 sm:gap-4"
           >
             <Button href="#projects">
               View My Work

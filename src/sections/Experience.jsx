@@ -41,7 +41,7 @@ const experiences = [
 
 function Experience() {
   return (
-    <section id="experience" className="px-6 py-28 md:py-36">
+    <section id="experience" className="px-4 sm:px-6 py-20 sm:py-28 md:py-36">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Experience"
@@ -52,7 +52,7 @@ function Experience() {
         <div className="relative">
           <div className="absolute left-[7px] top-2 hidden h-full w-px bg-white/10 md:block" />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((experience, index) => (
               <motion.div
                 key={experience.role}
@@ -67,7 +67,7 @@ function Experience() {
               >
                 <div className="absolute left-0 top-1 hidden h-[15px] w-[15px] rounded-full border-2 border-white/40 bg-[#050505] md:block" />
 
-                <div className="grid gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 lg:grid-cols-[180px_1fr]">
+                <div className="grid gap-6 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 md:p-8 lg:grid-cols-[180px_1fr]">
                   <div>
                     <p className="text-xs uppercase tracking-[0.15em] text-white/30">
                       {experience.period}
@@ -77,11 +77,11 @@ function Experience() {
                   <div>
                     <div className="flex flex-wrap items-start justify-between gap-4">
                       <div>
-                        <h3 className="text-xl font-semibold">
+                        <h3 className="text-lg sm:text-xl font-semibold">
                           {experience.role}
                         </h3>
 
-                        <p className="mt-1 text-sm text-white/40">
+                        <p className="mt-1 text-xs sm:text-sm text-white/40">
                           {experience.company}
                         </p>
                       </div>
@@ -92,15 +92,15 @@ function Experience() {
                       />
                     </div>
 
-                    <p className="mt-6 max-w-3xl text-sm leading-7 text-white/50">
+                    <p className="mt-4 sm:mt-6 max-w-3xl text-xs sm:text-sm leading-6 sm:leading-7 text-white/50">
                       {experience.description}
                     </p>
 
-                    <div className="mt-6 flex flex-wrap gap-2">
+                    <div className="mt-5 sm:mt-6 flex flex-wrap gap-1.5 sm:gap-2">
                       {experience.technologies.map((technology) => (
                         <span
                           key={technology}
-                          className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-white/40"
+                          className="rounded-full border border-white/10 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs text-white/40"
                         >
                           {technology}
                         </span>
