@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
+  AlertCircle,
   ArrowUpRight,
   CheckCircle2,
   FolderGit2,
@@ -11,27 +12,32 @@ import {
   Send,
 } from "lucide-react";
 import SectionHeading from "../components/SectionHeading";
+import site from "../data/site";
 
 const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "jamesarthur1x@gmail.com",
-    href: "mailto:jamesarthur1x@gmail.com",
+    value: site.email,
+    href: site.email && `mailto:${site.email}`,
   },
   {
     icon: FolderGit2,
     label: "GitHub",
-    value: "github.com/anonymous99-code",
-    href: "https://github.com/anonymous99-code",
+    value: site.github.replace(/^https?:\/\//, ""),
+    href: site.github,
   },
   {
     icon: Globe,
     label: "LinkedIn",
-    value: "linkedin.com/in/yourusername",
-    href: "https://linkedin.com/in/yourusername",
+    value: site.linkedin.replace(/^https?:\/\//, ""),
+    href: site.linkedin,
   },
-];
+].filter((link) => link.href);
+
+// Optional: set VITE_FORMSPREE_ID in .env to deliver messages directly.
+// Without it, the form opens the visitor's email app with the message filled in.
+const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID;
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -41,6 +47,7 @@ function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,14 +56,37 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     setIsSubmitting(true);
 
-    // Simulate API request delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      if (FORMSPREE_ID) {
+        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+        if (!res.ok) throw new Error("Request failed");
+      } else {
+        const subject = encodeURIComponent(`Portfolio message from ${formData.name}`);
+        const body = encodeURIComponent(
+          `${formData.message}\n\n— ${formData.name} (${formData.email})`,
+        );
+        window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+      }
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+      setIsSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+    } catch {
+      setError(
+        `Something went wrong sending your message. Please email me directly at ${site.email}.`,
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -99,10 +129,12 @@ function Contact() {
               >
                 <CheckCircle2 size={40} className="text-emerald-400" />
                 <h4 className="mt-4 text-lg font-medium text-white">
-                  Message Sent!
+                  {FORMSPREE_ID ? "Message Sent!" : "Almost there!"}
                 </h4>
                 <p className="mt-1 text-sm text-white/50">
-                  Thank you for reaching out. I'll get back to you soon.
+                  {FORMSPREE_ID
+                    ? "Thank you for reaching out. I'll get back to you soon."
+                    : "Your email app should now be open with your message ready. Just press send."}
                 </p>
                 <button
                   type="button"
@@ -114,6 +146,16 @@ function Contact() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-4">
+                {error && (
+                  <div
+                    role="alert"
+                    className="flex items-start gap-3 rounded-xl border border-red-400/20 bg-red-500/10 p-4 text-sm text-red-200"
+                  >
+                    <AlertCircle size={17} className="mt-0.5 shrink-0" />
+                    {error}
+                  </div>
+                )}
+
                 <div>
                   <label
                     htmlFor="name"
@@ -125,6 +167,7 @@ function Contact() {
                     type="text"
                     id="name"
                     name="name"
+                    autoComplete="name"
                     required
                     value={formData.name}
                     onChange={handleChange}
@@ -144,6 +187,7 @@ function Contact() {
                     type="email"
                     id="email"
                     name="email"
+                    autoComplete="email"
                     required
                     value={formData.email}
                     onChange={handleChange}

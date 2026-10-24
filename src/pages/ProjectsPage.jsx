@@ -2,10 +2,15 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
+import Footer from "../components/Footer";
 import projects from "../data/projects";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 function ProjectsPage() {
+  useDocumentTitle("All Projects | Portfolio");
+
   return (
+    <>
     <main className="min-h-screen bg-[#050505] px-6 pb-24 pt-32 text-white">
       <div className="mx-auto max-w-6xl">
         {/* Back */}
@@ -15,7 +20,7 @@ function ProjectsPage() {
           transition={{ duration: 0.5 }}
         >
           <Link
-            to="/"
+            to={{ pathname: "/", hash: "#projects" }}
             className="inline-flex items-center gap-2 text-sm text-white/40 transition hover:text-white"
           >
             <ArrowLeft size={16} />
@@ -56,6 +61,8 @@ function ProjectsPage() {
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
 

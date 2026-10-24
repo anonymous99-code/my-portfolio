@@ -39,7 +39,7 @@ const projects = [
     ],
     image: "/images/projects/cbt-system.png",
     github: "https://github.com/anonymous99-code/cbt-system",
-    demo: " https://anonymous99-code.github.io/cbt-demo/",
+    demo: "https://anonymous99-code.github.io/cbt-demo/",
     featured: true,
   },
 
@@ -69,7 +69,7 @@ const projects = [
     technologies: ["Python", "Cybersecurity", "Threat Detection", "CLI"],
     image: "/images/projects/psed.png",
     github: "https://github.com/anonymous99-code/P-sedv2",
-    demo: " https://anonymous99-code.github.io/psed-demo/",
+    demo: "https://anonymous99-code.github.io/psed-demo/",
     featured: true,
   },
 
@@ -82,7 +82,6 @@ const projects = [
     longDescription:
       "A lightweight security tool created to demonstrate password-strength analysis and practical security concepts through a command-line interface.",
     technologies: ["Python", "Cybersecurity", "CLI", "Password Security"],
-    image: "/images/projects/passsentinel.png",
     github: "#",
     demo: "#",
     featured: false,
@@ -97,7 +96,6 @@ const projects = [
     longDescription:
       "A practical defensive security project focused on log analysis and identifying patterns that may indicate suspicious or malicious activity.",
     technologies: ["Python", "Log Analysis", "Intrusion Detection", "CLI"],
-    image: "/images/projects/log-analyzer.png",
     github: "#",
     demo: "#",
     featured: false,

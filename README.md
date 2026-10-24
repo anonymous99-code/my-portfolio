@@ -1,16 +1,20 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React 19 + Vite + Tailwind CSS 4 + Framer Motion + React Router.
 
-Currently, two official plugins are available:
+## Run
+```bash
+npm install
+npm run dev      # local dev
+npm run build    # production build -> dist/
+npm run lint
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Customize
+- Personal details & links: `src/data/site.js` (leave `linkedin` empty to hide it, or add your URL)
+- Projects: `src/data/projects.js` · Skills: `src/data/skills.js` · Certificates: `src/data/certificates.js`
+- Contact form: copy `.env.example` to `.env` and set `VITE_FORMSPREE_ID` to receive messages directly.
+- Images live in `public/images/{projects,certificates}`. Add `image: "/images/projects/<name>.png"` to a project once you have a screenshot.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Deploy
+`vercel.json` already rewrites all routes to `index.html` for client-side routing.

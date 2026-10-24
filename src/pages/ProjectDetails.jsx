@@ -1,12 +1,20 @@
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, FolderGit2 } from "lucide-react";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
+import SafeImage from "../components/SafeImage";
 import projects from "../data/projects";
+import useDocumentTitle from "../hooks/useDocumentTitle";
+import { isRealLink } from "../utils/links";
 
 function ProjectDetails() {
   const { id } = useParams();
 
   const project = projects.find((item) => item.id === id);
+
+  useDocumentTitle(
+    project ? `${project.title} | Portfolio` : "Project not found | Portfolio",
+  );
 
   if (!project) {
     return (
@@ -21,11 +29,11 @@ function ProjectDetails() {
           </h1>
 
           <Link
-            to="/"
+            to="/projects"
             className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm text-white/60 transition hover:border-white/30 hover:text-white"
           >
             <ArrowLeft size={16} />
-            Back home
+            All projects
           </Link>
         </div>
       </main>
@@ -33,7 +41,8 @@ function ProjectDetails() {
   }
 
   return (
-    <main className="min-h-screen bg-[#050505] px-6 pb-24 pt-32 text-white">
+    <>
+    <main className="min-h-screen bg-[#050505] px-6 pb-24 pt-12 text-white sm:pt-16">
       <div className="mx-auto max-w-6xl">
         {/* Back Button */}
         <motion.div
@@ -42,7 +51,7 @@ function ProjectDetails() {
           transition={{ duration: 0.5 }}
         >
           <Link
-            to="/"
+            to="/projects"
             className="inline-flex items-center gap-2 text-sm text-white/40 transition hover:text-white"
           >
             <ArrowLeft size={16} />
@@ -77,19 +86,18 @@ function ProjectDetails() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-12 aspect-video overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]"
         >
-          {project.image ? (
-            <img
-              src={project.image}
-              alt={`${project.title} screenshot`}
-              className="h-full w-full object-cover"
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center">
-              <span className="text-xs uppercase tracking-[0.2em] text-white/20">
-                Project Screenshot
-              </span>
-            </div>
-          )}
+          <SafeImage
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            className="h-full w-full object-cover object-top"
+            fallback={
+              <div className="flex h-full items-center justify-center bg-gradient-to-br from-white/[0.04] to-transparent">
+                <span className="text-xs uppercase tracking-[0.2em] text-white/25">
+                  Screenshot coming soon
+                </span>
+              </div>
+            }
+          />
         </motion.div>
 
         {/* Content */}
@@ -144,35 +152,47 @@ function ProjectDetails() {
             </p>
 
             <div className="mt-5 space-y-3">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between rounded-xl border border-white/10 px-4 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
-              >
-                <span className="flex items-center gap-3">
-                  <FolderGit2 size={17} />
-                  GitHub Repository
-                </span>
+              {isRealLink(project.github) && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between rounded-xl border border-white/10 px-4 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
+                >
+                  <span className="flex items-center gap-3">
+                    <FolderGit2 size={17} />
+                    GitHub Repository
+                  </span>
 
-                <ArrowUpRight size={15} />
-              </a>
+                  <ArrowUpRight size={15} />
+                </a>
+              )}
 
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between rounded-xl border border-white/10 px-4 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
-              >
-                <span>Live Demo</span>
+              {isRealLink(project.demo) && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between rounded-xl border border-white/10 px-4 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
+                >
+                  <span>Live Demo</span>
 
-                <ArrowUpRight size={15} />
-              </a>
+                  <ArrowUpRight size={15} />
+                </a>
+              )}
+
+              {!isRealLink(project.github) && !isRealLink(project.demo) && (
+                <p className="text-sm leading-6 text-white/40">
+                  Links for this project are coming soon.
+                </p>
+              )}
             </div>
           </motion.aside>
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }
 
